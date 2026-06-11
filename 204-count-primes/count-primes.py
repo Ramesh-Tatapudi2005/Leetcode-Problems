@@ -7,7 +7,6 @@ class Solution:
             for i in range(2,int(math.sqrt(n))+1):
                 if is_prime[i]:
                     for j in range(i*i,n, i):
-                        if is_prime[j]:
                             is_prime[j] = False
         else:
             return 0
