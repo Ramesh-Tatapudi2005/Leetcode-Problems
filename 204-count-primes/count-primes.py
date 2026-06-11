@@ -10,5 +10,4 @@ class Solution:
                             is_prime[j] = False
         else:
             return 0
-        # print(is_prime)
         return is_prime.count(True)
