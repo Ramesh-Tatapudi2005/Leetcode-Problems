@@ -1,35 +1,19 @@
 class Solution:
     def reverseWords(self, s: str) -> str:
         result = ""
-        
-        # Pointer starting from end
         i = len(s) - 1
-        
-        # Traverse from right to left
+        word = ""
         while i >= 0:
-            # Skip spaces
-            while i >= 0 and s[i] == " ":
-                i -= 1
-            
-            # If pointer out of bounds, break
-            if i < 0:
-                break
-            
-            # Mark end of word
-            end = i
-            
-            # Move left until space or start
-            while i >= 0 and s[i] != " ":
-                i -= 1
-            
-            # Extract the word
-            word = s[i + 1:end + 1]
-            
-            # Add space if result is not empty
-            if result != "":
+            if s[i] != " ":
+                word = s[i] + word
+            elif s[i] == " " and word:
+                if result:
+                    result += " "
+                result += word
+                word = ""
+            i -= 1
+        if word:
+            if result :
                 result += " "
-            
-            # Append word
             result += word
-        
         return result
