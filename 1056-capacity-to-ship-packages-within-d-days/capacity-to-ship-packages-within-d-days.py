@@ -17,7 +17,7 @@ class Solution:
             mid = (low + high) // 2
             noofdays = self.daysneeded(weights, mid)
             if noofdays <= days:
-                high = mid 
+                high = mid
             else:
                 low = mid + 1
         return low
