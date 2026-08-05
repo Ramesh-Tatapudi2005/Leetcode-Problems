@@ -5,8 +5,8 @@ class Solution:
         val = 0
         j = len(height) - 1
         while i < j:
-            maxi = max(maxi, (j-i) * min(height[i],height[j]))
-            if height[i] < height[j]:
+            maxi = max(maxi, (j-i)*(min(height[j],height[i])))
+            if height[j] > height[i]:
                 i += 1
             else:
                 j -= 1
