@@ -6,25 +6,25 @@ class Solution:
         if len(tokens) == 1:
             return int(tokens[0])
         for i in tokens:
-            if i == '+' and top != 0 and top != -1:
+            if i == '+' and top > 0:
                 f = int(stack.pop())
                 s = int(stack.pop())
                 stack.append(s+f)
                 top -= 1
                 # print(i,stack[top],stack)
-            elif i == '-' and top != 0 and top != -1:
+            elif i == '-' and top > 0:
                 f = int(stack.pop())
                 s = int(stack.pop())
                 stack.append(s-f)
                 top -= 1
                 # print(i,stack[top],stack)
-            elif i == '*' and top != 0 and top != -1:
+            elif i == '*' and top >0:
                 f = int(stack.pop())
                 s = int(stack.pop())
                 stack.append(s*f)
                 top -= 1
                 # print(i,stack[top],stack)
-            elif i == '/' and top != 0 and top != -1:
+            elif i == '/' and top > 0:
                 f =int(stack.pop())
                 s = int(stack.pop())
                 stack.append(int(s/f))
