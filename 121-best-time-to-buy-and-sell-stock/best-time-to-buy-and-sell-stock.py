@@ -9,10 +9,10 @@ class Solution:
         #     maxi = max(i,i+maxi)
         #     gmaxi = max(maxi,gmaxi)
         # return gmaxi
-        minisp = float('inf')
-        maxprofit = 0
-        for curpri in prices:
-            maxprofit = max(maxprofit,curpri - minisp)
-            if curpri < minisp:
-                minisp = curpri
-        return maxprofit
+        minsp = float('inf')
+        max_profit = 0
+        for cur_price in prices:
+            max_profit = max(max_profit, cur_price- minsp)
+            if cur_price < minsp:
+                minsp = cur_price
+        return max_profit
