@@ -5,13 +5,13 @@ class Solution:
         for ban in piles:
             totalhrs += math.ceil(ban/speed)
         return totalhrs
+
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
-        low = 1
-        high = max(piles)
-        ans = max(piles)
+        low, high = 1, max(piles)
+        ans = float('inf')
         while low <= high:
-            mid = (low+high) // 2
-            totalhrs = self.totalHours(piles,mid)
+            mid = (low + high ) // 2
+            totalhrs = self.totalHours(piles, mid)
             if totalhrs <= h:
                 ans = mid
                 high = mid - 1
