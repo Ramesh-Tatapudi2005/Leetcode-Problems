@@ -1,19 +1,13 @@
-class Solution(object):
-    def uniformArray(self, nums1):
-        """
-        :type nums1: List[int]
-        :rtype: bool
-        """
-        odd=float('inf')
-        even=float('inf')
-
-        for i in nums1:
-            if i%2==0:
-                even=min(even,i)
+class Solution:
+    def uniformArray(self, nums1: list[int]) -> bool:
+        odd = float('inf')
+        even = float('inf')
+        for num in nums1:
+            if num % 2 == 0:
+                 even = min(even, num)
             else:
-                odd=min(odd,i)
-
-        if even!=float('inf') and odd!=float('inf'):
-            if even<odd:
-                return False
+                odd = min(odd,num)
+        # print(even,odd)
+        if even < odd and even != float('inf') and odd != float('inf'):
+            return False
         return True
