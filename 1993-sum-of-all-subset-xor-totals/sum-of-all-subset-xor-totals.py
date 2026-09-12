@@ -1,18 +1,11 @@
 class Solution:
-    def findXorSum(self, ind , xorarray , nums, n,ans):
+    def findXorSum(self, ind , current_xor , nums, n,ans):
         if ind >= n:
-            xsum = 0
-            if xorarray:
-                for num in xorarray:
-                    xsum = xsum ^ num
-            return xsum
-            
-        not_take =  self.findXorSum(ind + 1, xorarray, nums, n,ans)
-        xorarray.append(nums[ind])
-        take = self.findXorSum(ind+1 , xorarray, nums,n,ans)
-        xorarray.pop()
+            return current_xor
+        not_take =  self.findXorSum(ind + 1, current_xor, nums, n,ans)
+        take = self.findXorSum(ind+1 , current_xor ^ nums[ind], nums,n,ans)
         return not_take + take
     def subsetXORSum(self, nums: List[int]) -> int:
-        xor = []
+        xor = 0
         ans = 0
         return self.findXorSum(0, xor , nums, len(nums),ans)
