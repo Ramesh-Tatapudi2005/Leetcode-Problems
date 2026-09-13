@@ -5,9 +5,8 @@ class Solution:
             if len(comb) == k:
                 result.append(comb.copy())
                 return 
-            if ind > n:
-                return 
-            for i in range(ind, n+1):
+            rem = k - len(comb)
+            for i in range(ind, n - rem+2):
                 comb.append(i)
                 combinations(i+1, comb)
                 comb.pop()
